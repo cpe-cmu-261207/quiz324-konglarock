@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 
 function App() {
   //add useState for all state variables
-
+  const persons = [
+    {
+      nameP: "Phollakit Thongchaui 620610799"
+    }
+  ];
   //load locationStorage
   useEffect(() => {
     const items = localStorage.getItem("items");
@@ -47,8 +51,11 @@ function App() {
         {/* display tables for all persons */}
         <p className="is-4 title has-text-centered">Pet List</p>
         {/* sample table */}
+
         <ItemTable name={"Coco"} gender={"Male"} age={"5"} />
-        <p>Your name and code here</p>
+        {persons.map((person) => {
+          return <p>{person.nameP}</p>;
+        })}
       </div>
     </div>
   );
